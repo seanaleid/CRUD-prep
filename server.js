@@ -92,9 +92,9 @@ let animals = [
 
 let nextId = 12;
 
-function authenticator(res, res, next) {
+function authenticator(req, res, next) {
     const { authorization } = req.headers;
-    if ( authorization === token ) {
+    if (authorization === token) {
         next();
     } else {
         res.status(403).json({ error: 'User must be logged in to do that.' });
@@ -117,7 +117,7 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-app.get('/api/animals', authenticator, (req, res) => {
+app.get("/api/animals", authenticator, (req, res) => {
     res.send(animals);
 });
 
