@@ -133,7 +133,7 @@ app.get("/api/animals", authenticator, (req, res) => {
 });
 
 app.post('/api/animals', authenticator, (req, res) => {
-    if ( req.body.name !== undefined && req.body.class !== undefined ) {
+    if ( req.body.name !== undefined && req.body.classification !== undefined ) {
         const newAnimal = req.body;
         newAnimal.id = nextId;
         animals.push(newAnimal);
@@ -145,10 +145,10 @@ app.post('/api/animals', authenticator, (req, res) => {
 app.put('/api/animals/:id', authenticator, (req, res) => {
     if ( !req.params.id ) 
         res.status(400).send('Your request is missing the animal id! Please try again.');
-    if ( req.body.id === undefined || !req.body.name || !req.body.code ) {
+    if ( req.body.id === undefined || !req.body.name || !req.body.classification ) {
         res 
             .status(422)
-            .send('Make sure your request body has all teh fields it needs!');
+            .send('Make sure your request body has all the fields it needs!');
     }
     animals = animals.map(animal => {
         if ( `${animal.id}` === req.params.id ) {

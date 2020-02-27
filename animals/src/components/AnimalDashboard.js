@@ -7,6 +7,7 @@ import AnimalList from "./AnimalsList.js";
 export default function AnimalDashboard() {
     
     const [ animals, setAnimals ] = useState([]);
+    const [ update, setUpdate ] = useState(false);
     
     useEffect(() => {
         axiosWithAuth()
@@ -14,14 +15,15 @@ export default function AnimalDashboard() {
             .then(res => {
                 console.log(res.data)
                 setAnimals(res.data)
+                setUpdate(false);
             })
             .catch(err => console.log(`There was an error fetching the animals! Please try again.`, err.response ))
-    }, [])
+    }, [update])
 
     return(
         <div>
             <h1>Hello from the AnimalDashboard.js file!</h1>
-            <AnimalForm animals={animals} updateAnimals={setAnimals} />
+            <AnimalForm animals={animals} updateAnimals={setAnimals} update={setUpdate} />
             <AnimalList animals={animals} />
         </div>
     )
