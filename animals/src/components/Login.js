@@ -28,7 +28,7 @@ export default function Login(props) {
     }
     return (
         <div>
-            <h1>Hello from the Login.js file!</h1>
+            <h1 className="adventure">Are you ready to start your adventure?</h1>
             <form className="forms-style" onSubmit={handleSubmit}>
                 <input 
                     type="text"
@@ -48,7 +48,7 @@ export default function Login(props) {
                     onChange={handleChange}
                     className="input"
                 />
-                <button className="btn-style">Login</button>
+                <button className="start">Start</button>
             </form>
         </div>
     )

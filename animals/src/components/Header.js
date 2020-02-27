@@ -8,19 +8,13 @@ export default function Header() {
     }
 
     return (
-        <div>
-            <h1>Hello from the Header.js!</h1>
-            <ul>
-                <li>
-                    <Link to ="/login">Login</Link>
-                </li>
-                <li>
-                    <Link to ="/creatures">Animals</Link>
-                </li>
-                <li>
-                    <Link to ="/login" onClick={signOut}>Sign out</Link>
-                </li>
-            </ul>
+        <div className="header">
+            <Link to="/" className="title">Safari App</Link>
+            <nav className="nav-links">
+                <Link className="nav-link" to ="/login">Login</Link>
+                <Link className="nav-link" to ="/creatures">Animals</Link>
+                <Link className="nav-link" to ="/login" onClick={signOut}>Sign out</Link>
+            </nav>
         </div>
     )
 }

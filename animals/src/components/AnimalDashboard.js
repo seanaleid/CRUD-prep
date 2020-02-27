@@ -21,8 +21,7 @@ export default function AnimalDashboard() {
     }, [update])
 
     return(
-        <div>
-            <h1>Hello from the AnimalDashboard.js file!</h1>
+        <div className="dash">
             <AnimalForm animals={animals} updateAnimals={setAnimals} update={setUpdate} />
             <AnimalList animals={animals} />
         </div>

@@ -52,17 +52,16 @@ export default function AnimalForm({animals, updateAnimals, update}) {
     }
 
     return (
-        <div>
-            <h1>Hello from the AnimalForm.js file!</h1>
-            <ul>
+        <div className="animals-list">
+            <ul className="organized">
                 {animals.map(animal => (
-                    <li key={animal.name} onClick={() => editAnimal(animal)}>
+                    <li key={animal.name} onClick={() => editAnimal(animal)} className="edit-animals">
                         <span>
                             <span onClick={e => {
                                     e.stopPropagation();
                                     deleteAnimal(animal)
                                 }
-                            }>
+                            } >
                                 X
                             </span>{" "}
                             {animal.name}
