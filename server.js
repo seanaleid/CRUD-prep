@@ -13,77 +13,88 @@ app.use(CORS());
 let animals = [
     {
         name: 'Lion',
-        class: {
+        sound: 'RAWRRRRRRR!',
+        classification: {
             species:'Panthera leo'
         },
         id: 1
     },
     {
         name: 'Hippo',
-        class: {
+        sound: 'BLUB BLUB BLUB!',
+        classification: {
             species:'Hippopotamus amphibius'
         },
         id: 2
     },
     {
         name: 'Plains Zebra',
-        class: {
+        sound: "NEIGHHHHHH!",
+        classification: {
             species:'Equus quagga'
         },
         id: 3
     },
     {
         name: 'Capuchin Monkey',
-        class: {
+        sound: 'EE EE EE EE!',
+        classification: {
             species:'Cebinae'
         },
         id: 4
     },
     {
         name: 'African Elephant',
-        class: {
+        sound: 'OOOOOOOOOO!',
+        classification: {
             species:'Loxodonta'
         },
         id: 5
     },
     {
         name: 'Black Rhino',
-        class: {
+        sound: 'HRRRRRRRR!',
+        classification: {
             species:'Diceros bicornis'
         },
         id: 6
     },
     {
         name: 'Mountain Gorilla',
-        class: {
+        sound: 'OO EE OO EE!',
+        classification: {
             species:'Gorilla beringei beringei'
         },
         id: 7
     },
     {
         name: 'Lemur',
-        class: {
+        sound: 'IIIIIIIIII!',
+        classification: {
             species:'Lemuroidea'
         },
         id: 8
     },
     {
         name: 'Giant Panda',
-        class: {
+        sound: 'NOM NOM NOM!',
+        classification: {
             species:'Ailuropoda melanoleuca'
         },
         id: 9
     },
     {
         name: 'Penguin',
-        class: {
+        sound: 'GAK GAK GAK!',
+        classification: {
             species:'Spheniscidae'
         },
         id: 10
     },
     {
         name: 'Cheetah',
-        class: {
+        sound: "PURRRRRRRR!",
+        classification: {
             species:'Acinonyx jubatus'
         },
         id: 11

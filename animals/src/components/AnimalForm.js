@@ -1,9 +1,92 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function AnimalForm() {
+import { axiosWithAuth } from "../utils/axiosWithAuth.js";
+
+const initialAnimal = {
+    name: '',
+    sound: '',
+    classification: { species:'' }
+}
+
+export default function AnimalForm({animals, updateAnimals}) {
+    // console.log(`AnimalForm.js`, props);
+
+    const [ updating, setUpdating ] = useState(false);
+    const [animalToUpdate, setAnimalToUpdate] = useState(initialAnimal);
+
+    const editAnimal = animal => {
+        setUpdating(true);
+        setAnimalToUpdate(animal);
+    }
+
+    const saveUpdate = e => {
+        e.preventDefault();
+    }
+
+    const deleteAnimal = animal => {
+        axiosWithAuth()
+            .delete('')
+
+    }
+
     return (
         <div>
             <h1>Hello from the AnimalForm.js file!</h1>
+            <ul>
+                {animals.map(animal => (
+                    <li key={animal.name} onClick={() => editAnimal(animal)}>
+                        <span>
+                            <span onClick={e => {
+                                    e.stopPropagation();
+                                    deleteAnimal(animal)
+                                }
+                            }>
+                                X
+                            </span>{" "}
+                            {animal.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            { updating && (
+                <form onSubmit={saveUpdate}>
+                    <legend>Update Animal</legend>
+                    <label>
+                        Name:
+                        <input 
+                            onChange={e =>
+                                setAnimalToUpdate({ ...animalToUpdate, name: e.target.value })
+                            }
+                            value={animalToUpdate.name}
+                        />
+                    </label>
+                    <label>
+                        Sound:
+                        <input 
+                            onChange={e =>
+                                setAnimalToUpdate({ ...animalToUpdate, sound: e.target.value })
+                            }
+                            value={animalToUpdate.sound}
+                        />
+                    </label>
+                    <label>
+                        Classification:
+                        <input 
+                            onChange={e =>
+                                setAnimalToUpdate({ 
+                                    ...animalToUpdate, 
+                                    classification: { species: e.target.value }
+                                })
+                            }
+                            value={animalToUpdate.classification.species}
+                        />
+                    </label>
+                    <div>
+                        <button type="submit">Update</button>
+                        <button onClick={() => setUpdating(false)}>Cancel</button>
+                    </div>
+                </form>
+            )}
         </div>
     )
 }
